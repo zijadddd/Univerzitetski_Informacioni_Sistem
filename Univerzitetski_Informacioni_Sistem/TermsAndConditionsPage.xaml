@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.TermsAndConditionsPage"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             Title="TermsAndConditionsPage">
+    <Grid Margin="10, 10">
+        <Frame WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Button FontFamily="MaterialIcons" 
+                    Text="{x:Static helpers:IconFont.Arrow_back}" 
+                    TextColor="#2a2a3e"
+                    HeightRequest="50" 
+                    WidthRequest="50" 
+                    FontSize="25"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoBackCommand}"/>
+        </Frame>
+        <VerticalStackLayout Spacing="20" VerticalOptions="Center">
+            <Image Source="termsandconditions.png" WidthRequest="230"/>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Uslovi korištenja" FontSize="Medium" HorizontalTextAlignment="Center" FontFamily="MontserratMedium"/>
+                <VerticalStackLayout>
+                    <Label Text="Da bi ste koristili ovu aplikaciju, potrebno je da ste student bilo kojeg fakulteta u okviru " FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratLight"/>
+                    <Label Text="Univerziteta u Zenici." FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratMedium"/>
+                </VerticalStackLayout>
+                <Label Text="Sa tom činjenicom se slažete da nećete zloupotrebljavati ovu aplikaciju ni na koji način te da će te ju koristiti isključivo u informativne svrhe za potrebe fakulteta." FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratLight"/>
+                <Label Text="Ukoliko imate bilo kojih nesuglasica po pitanju upotrebe aplikacije ili ste primijetili određene greške sa radom iste, budite slobodni da nas kontaktirate putem: " FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratLight"/>
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                        <Label FontFamily="MaterialIcons" 
+                                           Text="{x:Static helpers:IconFont.Email}" 
+                                           HorizontalTextAlignment="Center"
+                                           TextColor="#387ee7"
+                                           HeightRequest="15" WidthRequest="15" 
+                                           HorizontalOptions="Center" 
+                                           VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="email@provajder.ba" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                    <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                        <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Phone}" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="#387ee7"
+                           HeightRequest="15" WidthRequest="15" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="(+387) 00 000 0000" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+                <Label Text="Uz dužno poštovanje se zahvaljujemo." FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratLight"/>
+                <Label Text="Univerzitet u Zenici" FontSize="Small" HorizontalTextAlignment="Center" FontFamily="MontserratMedium"/>
+            </VerticalStackLayout>
+            <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                <Button Command="{Binding GoBackCommand}" BackgroundColor="#0067FF" Text="Ok" TextColor="White" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+            </Frame>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

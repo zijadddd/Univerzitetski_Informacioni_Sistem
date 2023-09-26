@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.SubjectPage"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             Title="SubjectPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                   IsVisible="{Binding IsVisible}" 
+                   HeightRequest="{Binding ActivityIndicatorHeightRequest}"
+                   WidthRequest="{Binding ActivityIndicatorWidthRequest}"
+                   Margin="{Binding ActivityIndicatorMargin}"
+                   Color="#0067ff"/>
+            <Frame WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent" Margin="10">
+                <Button FontFamily="MaterialIcons" 
+                        Text="{x:Static helpers:IconFont.Arrow_back}" 
+                        TextColor="#2a2a3e"
+                        HeightRequest="50" 
+                        WidthRequest="50" 
+                        FontSize="25"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        Command="{Binding GoBackCommand}"/>
+            </Frame>
+            <VerticalStackLayout Padding="30, 0">
+                <Label Text="{Binding SubjectName}" FontSize="20" TextColor="#2a2a3e" FontFamily="MontserratMedium" />
+                <Label Text="{Binding Date}" FontFamily="MontserratMedium" FontSize="Micro" TextColor="Gray" />
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#cde7fc" BorderColor="Transparent">
+                        <Frame BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="50" WidthRequest="60" HeightRequest="60">
+                            <Image Source="professor.png" Aspect="AspectFill" WidthRequest="60" HeightRequest="60"/>
+                        </Frame>
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Profesor:" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding ProfessorName}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="12"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#FFCDD2" BorderColor="Transparent">
+                        <Frame BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="50" WidthRequest="60" HeightRequest="60">
+                            <Image Source="assistant.png" Aspect="AspectFill" WidthRequest="60" HeightRequest="60"/>
+                        </Frame>
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Label Text="Asistent:" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding AssistantName}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="12"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#cde7fc" BorderColor="Transparent">
+                        <Label FontFamily="MaterialIcons" 
+                               Text="{x:Static helpers:IconFont.Calendar_month}" 
+                               TextColor="#387ee7"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"
+                               FontSize="20"
+                               WidthRequest="20" 
+                               HeightRequest="20"/>
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                        <Label Text="{Binding LecturesDay}" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding LecturesTime}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="15" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#e6ceff" BorderColor="Transparent">
+                        <Label FontFamily="MaterialIcons" 
+                               Text="{x:Static helpers:IconFont.Link}"
+                               TextColor="#d89af9"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"
+                               FontSize="20"
+                               WidthRequest="20" 
+                               HeightRequest="20" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                        <Label Text="Lokacija" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding LecturesLocation}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="15" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#FFCDD2" BorderColor="Transparent">
+                        <Label FontFamily="MaterialIcons" 
+                               Text="{x:Static helpers:IconFont.Calendar_month}" 
+                               TextColor="#F44336"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"
+                               FontSize="20"
+                               WidthRequest="20" 
+                               HeightRequest="20" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                        <Label Text="{Binding ExercisesDay}" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding ExercisesTime}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="15" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#FFF9C4" BorderColor="Transparent">
+                        <Label FontFamily="MaterialIcons" 
+                               Text="{x:Static helpers:IconFont.Link}"
+                               TextColor="#FFEB3B"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"
+                               FontSize="20"
+                               WidthRequest="20" 
+                               HeightRequest="20" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                        <Label Text="Lokacija" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding ExercisesLocation}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="15" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20" Margin="0, 10">
+                    <Frame WidthRequest="70" HeightRequest="70" CornerRadius="25" BackgroundColor="#dcffce" BorderColor="Transparent">
+                        <Label FontFamily="MaterialIcons" 
+                               Text="{x:Static helpers:IconFont.People}" 
+                               TextColor="#5ebd4e"
+                               HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="Center"
+                               FontSize="20"
+                               WidthRequest="20" 
+                               HeightRequest="20" />
+                    </Frame>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="5">
+                        <Label Text="Broj studenata na predmetu" FontFamily="MontserratLight" FontAttributes="Bold" TextColor="Gray" FontSize="12"/>
+                        <Label Text="{Binding NumberOfStudents}" FontFamily="MontserratMedium" FontAttributes="Bold" TextColor="#2a2a3e" FontSize="15" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+                <Label Text="Studenti" FontFamily="MontserratMedium" FontSize="20" Margin="0, 10" TextColor="#2a2a3e"/>
+                <Frame HeightRequest="70" CornerRadius="30" BackgroundColor="#f4f5fc" BorderColor="Transparent">
+                    <FlexLayout HeightRequest="70" VerticalOptions="Center" HorizontalOptions="Center" Direction="Row" AlignItems="Center" JustifyContent="SpaceAround">
+                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#f4f5fc">
+                            <Image Source="{Binding Student1}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+                        </Frame>
+                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#f4f5fc">
+                            <Image Source="{Binding Student2}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+                        </Frame>
+                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#f4f5fc">
+                            <Image Source="{Binding Student3}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill" />
+                        </Frame>
+                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#f4f5fc">
+                            <Image Source="{Binding Student4}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>
+                        </Frame>
+                        <Frame HeightRequest="50" WidthRequest="50" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#f4f5fc">
+                            <Image Source="{Binding Student5}" HeightRequest="50" WidthRequest="50" Aspect="AspectFill"/>
+                        </Frame>
+                    </FlexLayout>
+                </Frame>
+                <Label Text="Bodovi" FontFamily="MontserratMedium" FontSize="20" Margin="0, 10" TextColor="#2a2a3e"/>
+                <Frame BackgroundColor="#f4f5fc" BorderColor="Transparent" HeightRequest="295" CornerRadius="30">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Presence}" FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <Label Text="{Binding SeminarWork}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <Label Text="{Binding Homework}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <Label Text="{Binding FirstPartialExam}" FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <Label Text="{Binding SecondPartialExam}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <Label Text="{Binding FinalExam}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" />
+                        <BoxView HeightRequest="1" BackgroundColor="#dedfe3" Margin="0, 10"/>
+                        <FlexLayout HeightRequest="20" Direction="Row" AlignItems="Center" JustifyContent="SpaceBetween">
+                            <Label Text="{Binding Total}" FontFamily="MontserratMedium" TextColor="#2a2a3e" HorizontalOptions="Start"/>
+                            <Label Text="{Binding Grade}" FontFamily="MontserratMedium" TextColor="#2a2a3e" HorizontalOptions="End"/>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                </Frame>
+                <Label Text="Prisustvo" FontFamily="MontserratMedium" FontSize="20" Margin="0, 10" TextColor="#2a2a3e"/>
+                <VerticalStackLayout Spacing="10">
+                    <HorizontalStackLayout Spacing="10">
+                        <HorizontalStackLayout>
+                            <Frame WidthRequest="10" HeightRequest="10" BackgroundColor="#0067ff" BorderColor="Transparent"/>
+                            <Label Text=" - Predavanja" FontFamily="MontserratLight"/>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout>
+                            <Frame WidthRequest="10" HeightRequest="10" BackgroundColor="#ff7272" BorderColor="Transparent"/>
+                            <Label Text=" - Vježbe" FontFamily="MontserratLight"/>
+                        </HorizontalStackLayout>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout>
+                        <Frame WidthRequest="10" HeightRequest="10" BackgroundColor="#f4f5fc" BorderColor="Transparent"/>
+                        <Label Text=" - Prisustvo nije evidentirano" FontFamily="MontserratLight"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+                <Grid ColumnSpacing="17" HorizontalOptions="Center" Margin="0, 10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="3" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView Color="{Binding WeekLectures1}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="0" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures2}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="1" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures3}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="2" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures4}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="3" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures5}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="4" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures6}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="5" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures7}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="6" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures8}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="7" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures9}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="8" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures10}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="9" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures11}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="10" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures12}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="11" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures13}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="12" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures14}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="13" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures15}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="14" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekLectures16}" HeightRequest="15" WidthRequest="3" Grid.Row="0" Grid.Column="15" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises1}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="0" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises2}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="1" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises3}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="2" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises4}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="3" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises5}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="4" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises6}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="5" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises7}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="6" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises8}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="7" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises9}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="8" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises10}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="9" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises11}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="10" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises12}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="11" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises13}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="12" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises14}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="13" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises15}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="14" CornerRadius="10"/>
+                    <BoxView Color="{Binding WeekExercises16}" HeightRequest="15" WidthRequest="3" Grid.Row="1" Grid.Column="15" CornerRadius="10"/>
+                </Grid>
+                <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent" Margin="0, 20">
+                    <Button Command="{Binding OpenAttendancePageCommand}" BackgroundColor="#0067FF" Text="Vidi prisustvo" TextColor="White" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+                </Frame>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.NoInternetConnectionPage"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             >
+    <Grid Margin="10, 10">
+        <Frame WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Button FontFamily="MaterialIcons" 
+                    Text="{x:Static helpers:IconFont.Arrow_back}" 
+                    TextColor="#2a2a3e"
+                    HeightRequest="50" 
+                    WidthRequest="50" 
+                    FontSize="25"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoBackCommand}"/>
+        </Frame>
+        <VerticalStackLayout Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image Source="nointernetconnection.jpg" Margin="20, 0"/>
+            <Label Text="Oops, izgubili ste vezu sa Internetom" HorizontalOptions="Center" FontSize="Medium" FontFamily="MontserratLight" HorizontalTextAlignment="Center"/>
+            <Label Text="Provjerite da li su Vam Wifi ili mobilni podaci uključeni te pokušajte ponovo." 
+                   FontSize="15" 
+                   HorizontalTextAlignment="Center" 
+                   TextColor="Gray"
+                   FontFamily="MontserratLight"/>
+            <StackLayout Spacing="10" Margin="0, 30">
+                <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                    <Button Command="{Binding GoBackCommand}"
+                            BackgroundColor="#0067FF" 
+                            Text="Pokušajte ponovo" 
+                            TextColor="White"
+                            HeightRequest="50" 
+                            WidthRequest="300" 
+                            FontFamily="MontserratMedium"/>
+                </Frame>
+            </StackLayout>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

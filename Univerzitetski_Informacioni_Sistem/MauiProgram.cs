@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using ZXing.Net.Maui;
 
 namespace Univerzitetski_Informacioni_Sistem
 {
@@ -6,18 +7,27 @@ namespace Univerzitetski_Informacioni_Sistem
     {
         public static MauiApp CreateMauiApp()
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
+            var builder = MauiApp.CreateBuilder()
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                    fonts.AddFont("Montserrat-Light.ttf", "MontserratLight");
+                    fonts.AddFont("Montserrat-Medium.ttf", "MontserratMedium");
+                    fonts.AddFont("MaterialIcons.ttf", "MaterialIcons");
+                })
+                .UseBarcodeReader()
 
-#if DEBUG
-		builder.Logging.AddDebug();
-#endif
+            #region
+                .ConfigureMauiHandlers(h =>
+                 {
+                     h.AddHandler(typeof(ZXing.Net.Maui.Controls.CameraBarcodeReaderView), typeof(CameraBarcodeReaderViewHandler));
+                     h.AddHandler(typeof(ZXing.Net.Maui.Controls.CameraView), typeof(CameraViewHandler));
+                     h.AddHandler(typeof(ZXing.Net.Maui.Controls.BarcodeGeneratorView), typeof(BarcodeGeneratorViewHandler));
+                 });
+            #endregion
+
+
 
             return builder.Build();
         }

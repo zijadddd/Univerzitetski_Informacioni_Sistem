@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.ProfilePage"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             Title="ProfilePage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="30" Margin="10, 10" VerticalOptions="CenterAndExpand">
+            <Grid WidthRequest="145" HeightRequest="145">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Frame HeightRequest="145" WidthRequest="145" CornerRadius="85" BorderColor="Transparent" HorizontalOptions="Center" BackgroundColor="#AA3e8dfd">
+                    <Frame HeightRequest="120" WidthRequest="120" CornerRadius="60" BorderColor="Transparent" Grid.Row="0" Grid.Column="0">
+                        <Image Source="{Binding ProfilePhoto}" HeightRequest="120" WidthRequest="120" Aspect="AspectFill"/>
+                    </Frame>
+                </Frame>
+                <Frame HorizontalOptions="End" 
+                       VerticalOptions="End" 
+                       Margin="10" 
+                       Grid.Row="0" 
+                       Grid.Column="0"
+                       WidthRequest="36"
+                       HeightRequest="36"
+                       CornerRadius="50"
+                       BackgroundColor="White"
+                       BorderColor="Transparent">
+                    <Button Text="+" 
+                            WidthRequest="30" 
+                            HeightRequest="30" 
+                            BackgroundColor="#0067FF" 
+                            TextColor="White" 
+                            FontSize="Large"
+                            FontFamily="MontserratMedium"
+                            Padding="0"
+                            CornerRadius="50" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            Command="{Binding ChangeProfilePhotoCommand}" />
+                </Frame>
+            </Grid>
+            <Label Text="{Binding FullName}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <HorizontalStackLayout Spacing="10" Margin="20, 0" HorizontalOptions="Center">
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Calendar_month}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Birthday}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Location_city}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Location}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Phone}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding PhoneNumber}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10" Margin="20, 0" HorizontalOptions="Center">
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Email}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Email}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Book}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Index}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10" Margin="20, 0" HorizontalOptions="Center">
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.School}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding University}"  FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.Square_foot}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Faculty}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+                <Frame HeightRequest="30" WidthRequest="30" CornerRadius="50" BorderColor="Transparent" BackgroundColor="#cde7fc">
+                    <Label FontFamily="MaterialIcons" 
+                           Text="{x:Static helpers:IconFont.History_edu}" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="#0067FF"
+                           HeightRequest="15" WidthRequest="15" />
+                </Frame>
+                <Label Text="{Binding Department}" FontFamily="MontserratMedium" TextColor="#2a2a3e" FontSize="13" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                <Button Command="{Binding ResetPasswordCommand}" BackgroundColor="#F4F5FC" Text="Promijeni lozinku" TextColor="#23243a" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+            </Frame>
+            <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                <Button Command="{Binding TermsAndConditionsCommand}" BackgroundColor="#F4F5FC" Text="Uslovi korištenja" TextColor="#23243a" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

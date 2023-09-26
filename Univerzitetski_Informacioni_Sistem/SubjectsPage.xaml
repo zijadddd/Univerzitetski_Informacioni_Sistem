@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.SubjectsPage"
+             Title="SubjectsPage">
+    <ScrollView>
+        <VerticalStackLayout>
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               IsVisible="{Binding IsVisible}" 
+                               HeightRequest="{Binding ActivityIndicatorHeightRequest}"
+                               WidthRequest="{Binding ActivityIndicatorWidthRequest}"
+                               Margin="{Binding ActivityIndicatorMargin}"
+                               Color="#0067ff"/>
+            <Border VerticalOptions="StartAndExpand" BackgroundColor="#f4f5fc" StrokeShape="RoundRectangle 0, 0, 40, 40" StrokeThickness="0" Padding="0" HeightRequest="230">
+                <VerticalStackLayout>
+                    <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="SpaceBetween" VerticalOptions="Start" HeightRequest="100">
+                        <Frame BackgroundColor="Transparent" BorderColor="Transparent" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Date}" FontFamily="MontserratMedium" FontSize="Micro" TextColor="Gray" FontAttributes="Bold"/>
+                                <HorizontalStackLayout>
+                                    <Label Text="Zdravo " FontFamily="MontserratLight" FontSize="Large" TextColor="#2a2a3e" FontAttributes="Bold" />
+                                    <Label Text="{Binding FirstName}" FontFamily="MontserratMedium" FontSize="Large" TextColor="#2a2a3e" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame HeightRequest="70" WidthRequest="70" CornerRadius="20" HorizontalOptions="End" BorderColor="Transparent" Margin="10" Padding="0">
+                            <Image Source="{Binding ProfilePhoto}" HeightRequest="70" WidthRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill"/>
+                        </Frame>
+                    </FlexLayout>
+                    <FlexLayout HorizontalOptions="Center" Direction="Row" AlignItems="Center" JustifyContent="SpaceAround" Margin="0, 20">
+                        <Border WidthRequest="90" HeightRequest="100" StrokeShape="RoundRectangle 20, 20, 20, 20" StrokeThickness="0" Padding="0" BackgroundColor="#0067ff">
+                            <Border.Shadow>
+                                <Shadow Brush="#0067ff" Offset="10, 10" Radius="50"/>
+                            </Border.Shadow>
+                            <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Label Text="{Binding ActiveSubjectsNumber}" FontSize="25" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" />
+                                <Label Text="Aktivni" FontSize="15" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border BackgroundColor="#f4f5fc" WidthRequest="90" HeightRequest="100" StrokeShape="RoundRectangle 20, 20, 20, 20" StrokeThickness="0" Padding="0">
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label Text="{Binding PendingSubjectsNumber}" TextColor="#24253d" FontSize="25" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                <Label Text="Na čekanju" TextColor="#24253d" Opacity="0.3" FontSize="15" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border BackgroundColor="#f4f5fc" WidthRequest="90" HeightRequest="100" StrokeShape="RoundRectangle 20, 20, 20, 20" StrokeThickness="0" Padding="0">
+                            <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <Label Text="{Binding CompletedSubjectsNumber}" TextColor="#24253d" FontSize="25" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                <Label Text="Završeni" TextColor="#24253d" Opacity="0.3" FontSize="15" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </Border>
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0, 20, 0, 0">
+                <BoxView WidthRequest="100" HeightRequest="1" BackgroundColor="#23243a" />
+                <Label Text="   Aktivni predmeti   " TextColor="#23243a" FontFamily="MontserratMedium"/>
+                <BoxView WidthRequest="100" HeightRequest="1" BackgroundColor="#23243a" />
+            </HorizontalStackLayout>
+            <VerticalStackLayout Margin="20, 10" Spacing="10">
+                <ListView ItemsSource="{Binding ActiveSubjects}" SeparatorVisibility="None" RowHeight="310" SelectionMode="None" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" HeightRequest="295" BackgroundColor="{Binding ColorOne}" BorderColor="Transparent" CornerRadius="40">
+                                    <VerticalStackLayout>
+                                        <Frame Margin="0,10,0,10" WidthRequest="350" HeightRequest="280" CornerRadius="30" BackgroundColor="Transparent" BorderColor="Transparent">
+                                            <Image Aspect="AspectFill" Source="{Binding Picture}"/>
+                                        </Frame>
+                                        <Frame Margin="0,-290, 13, 30" BorderColor="White" CornerRadius="30" WidthRequest="80" HeightRequest="100" HorizontalOptions="End">
+                                            <VerticalStackLayout VerticalOptions="Center" WidthRequest="80" HeightRequest="80">
+                                                <Label Text="{Binding NumberOfStudents}" TextColor="#23243a" FontSize="45" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                                <Label Text="{Binding StudentsText}" TextColor="#23243a" FontSize="10" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                        <Border Padding="20,20,20,0" HeightRequest="145" Margin="10,0,10,10" StrokeShape="RoundRectangle 40,40,40,40" Stroke="Transparent" BackgroundColor="{Binding ColorTwo}" VerticalOptions="End">
+                                            <VerticalStackLayout Spacing="5">
+                                                <Label Text="{Binding Name}" FontFamily="MontserratMedium" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Professor}" FontFamily="MontserratMedium" TextColor="White" FontSize="15"/>
+                                                <Button Command="{Binding OpenSubjectPageCommand}" Text="Pristupi" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" WidthRequest="100" CornerRadius="20" Padding="15" FontAttributes="Bold" FontFamily="MontserratMedium" HorizontalOptions="End" TextColor="White" />
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <BoxView WidthRequest="85" HeightRequest="1" BackgroundColor="#23243a" />
+                    <Label Text="   Predmeti na čekanju   " TextColor="#23243a" FontFamily="MontserratMedium"/>
+                    <BoxView WidthRequest="85" HeightRequest="1" BackgroundColor="#23243a" />
+                </HorizontalStackLayout>
+                <ListView ItemsSource="{Binding PendingSubjects}" SeparatorVisibility="None" RowHeight="310" SelectionMode="None" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" HeightRequest="295" BackgroundColor="{Binding ColorOne}" BorderColor="Transparent" CornerRadius="40">
+                                    <VerticalStackLayout>
+                                        <Frame Margin="0,10,0,10" WidthRequest="350" HeightRequest="280" CornerRadius="30" BackgroundColor="Transparent" BorderColor="Transparent">
+                                            <Image Aspect="AspectFill" Source="{Binding Picture}"/>
+                                        </Frame>
+                                        <Frame Margin="0,-290, 13, 30" BorderColor="White" CornerRadius="30" WidthRequest="80" HeightRequest="100" HorizontalOptions="End">
+                                            <VerticalStackLayout VerticalOptions="Center" WidthRequest="80" HeightRequest="80">
+                                                <Label Text="{Binding NumberOfStudents}" TextColor="#23243a" FontSize="45" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                                <Label Text="{Binding StudentsText}" TextColor="#23243a" FontSize="10" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                        <Border Padding="20,20,20,0" HeightRequest="145" Margin="10,0,10,10" StrokeShape="RoundRectangle 40,40,40,40" Stroke="Transparent" BackgroundColor="{Binding ColorTwo}" VerticalOptions="End">
+                                            <VerticalStackLayout Spacing="5">
+                                                <Label Text="{Binding Name}" FontFamily="MontserratMedium" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Professor}" FontFamily="MontserratMedium" TextColor="White" FontSize="15"/>
+                                                <Button Command="{Binding OpenSubjectPageCommand}" ClassId="{Binding Id}" Text="Pristupi" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" WidthRequest="100" CornerRadius="20" Padding="15" FontAttributes="Bold" FontFamily="MontserratMedium" HorizontalOptions="End" TextColor="White" />
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <BoxView WidthRequest="95" HeightRequest="1" BackgroundColor="#23243a" />
+                    <Label Text="   Završeni predmeti   " TextColor="#23243a" FontFamily="MontserratMedium"/>
+                    <BoxView WidthRequest="95" HeightRequest="1" BackgroundColor="#23243a" />
+                </HorizontalStackLayout>
+                <ListView ItemsSource="{Binding CompletedSubjects}" SeparatorVisibility="None" RowHeight="310" SelectionMode="None" Margin="5">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0" HeightRequest="295" BackgroundColor="{Binding ColorOne}" BorderColor="Transparent" CornerRadius="40">
+                                    <VerticalStackLayout>
+                                        <Frame Margin="0,10,0,10" WidthRequest="350" HeightRequest="280" CornerRadius="30" BackgroundColor="Transparent" BorderColor="Transparent">
+                                            <Image Aspect="AspectFill" Source="{Binding Picture}"/>
+                                        </Frame>
+                                        <Frame Margin="0,-290, 13, 30" BorderColor="White" CornerRadius="30" WidthRequest="80" HeightRequest="100" HorizontalOptions="End">
+                                            <VerticalStackLayout VerticalOptions="Center" WidthRequest="80" HeightRequest="80">
+                                                <Label Text="{Binding NumberOfStudents}" TextColor="#23243a" FontSize="45" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                                <Label Text="{Binding StudentsText}" TextColor="#23243a" FontSize="10" FontFamily="MontserratMedium" FontAttributes="Bold" HorizontalOptions="Center" />
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                        <Border Padding="20,20,20,0" HeightRequest="145" Margin="10,0,10,10" StrokeShape="RoundRectangle 40,40,40,40" Stroke="Transparent" BackgroundColor="{Binding ColorTwo}" VerticalOptions="End">
+                                            <VerticalStackLayout Spacing="5">
+                                                <Label Text="{Binding Name}" FontFamily="MontserratMedium" TextColor="White" FontSize="14" FontAttributes="Bold"/>
+                                                <Label Text="{Binding Professor}" FontFamily="MontserratMedium" TextColor="White" FontSize="15"/>
+                                                <Button Command="{Binding OpenSubjectPageCommand}" ClassId="{Binding Id}" Text="Pristupi" BackgroundColor="Transparent" BorderColor="White" BorderWidth="1" WidthRequest="100" CornerRadius="20" Padding="15" FontAttributes="Bold" FontFamily="MontserratMedium" HorizontalOptions="End" TextColor="White" />
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

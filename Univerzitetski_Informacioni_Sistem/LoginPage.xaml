@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.LoginPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="Login">
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#0067FF"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <VerticalStackLayout Spacing="10" Margin="0, 40">
+            <Image Source="unzelogo.png" HeightRequest="200" />
+            <VerticalStackLayout>
+                <HorizontalStackLayout HorizontalOptions="Center">
+                    <Label Text="Univerzitetski " TextColor="#252437" FontSize="Large" FontFamily="MontserratLight" />
+                    <Label Text="informacioni" TextColor="#0067ff" FontSize="Large" FontFamily="MontserratLight" />
+                </HorizontalStackLayout>
+                <Label Text="sistem" TextColor="#252437" HorizontalOptions="CenterAndExpand" FontSize="Large" FontFamily="MontserratLight" />
+            </VerticalStackLayout>
+            <Label Text="Prijava" TextColor="#252437" HorizontalOptions="CenterAndExpand" FontSize="Large" FontFamily="MontserratLight" />
+            <Frame BorderColor="Transparent" CornerRadius="30" WidthRequest="350" BackgroundColor="#F4F5FC">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Email" TextColor="#252437" FontFamily="MontserratLight" WidthRequest="300" Padding="5, 0"/>
+                    <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                        <Entry Text="{Binding Email}"
+                               Placeholder="npr. john@example.com"
+                               FontFamily="MontserratLight"
+                               TextColor="#252437"
+                               VerticalOptions="Center"
+                               HeightRequest="50"                            
+                        />
+                    </Frame>
+                    <Label Text="Lozinka" TextColor="#252437" FontFamily="MontserratLight" WidthRequest="300" Padding="5, 0"/>
+                    <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                        <Entry Text="{Binding Password}"
+                               Placeholder="npr. Abcdef1*"
+                               FontFamily="MontserratLight"
+                               TextColor="#252437"
+                               VerticalOptions="Center"
+                               HeightRequest="50"
+                               IsPassword="True"
+                               
+                        />
+                    </Frame>
+                    <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent">
+                        <Button Command="{Binding Command}" BackgroundColor="#0067FF" Text="Prijavi se" TextColor="White" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.AttendancePage"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             Title="AttendancePage">
+    <ScrollView>
+        <VerticalStackLayout Margin="10, 10">
+            <ActivityIndicator IsRunning="{Binding IsRunning}" 
+                               IsVisible="{Binding IsVisible}" 
+                               HeightRequest="{Binding ActivityIndicatorHeightRequest}"
+                               WidthRequest="{Binding ActivityIndicatorWidthRequest}"
+                               Margin="{Binding ActivityIndicatorMargin}"
+                               Color="#0067ff"/>
+            <Frame WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent">
+                <Button FontFamily="MaterialIcons" 
+                        Text="{x:Static helpers:IconFont.Arrow_back}" 
+                        TextColor="#2a2a3e"
+                        HeightRequest="50" 
+                        WidthRequest="50" 
+                        FontSize="25"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        BackgroundColor="Transparent"
+                        Command="{Binding GoBackCommand}"/>
+            </Frame>
+            <Image Source="attendance.png" WidthRequest="200" />
+            <Label Text="Prisustvo" FontFamily="MontserratMedium" FontSize="Large" HorizontalTextAlignment="Center" Margin="15"/>
+            <ListView ItemsSource="{Binding StudentAttendance}" SeparatorVisibility="None" HorizontalOptions="Center" SelectionMode="None" Margin="15" IsVisible="{Binding AttendanceListIsVisible}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding LecturesDate}"  FontSize="13" TextColor="#2a2a3e" FontFamily="MontserratMedium" />
+                                <Label Text="{Binding ExercisesDate}" FontSize="13" TextColor="#2a2a3e" FontFamily="MontserratMedium" />
+                                <BoxView HeightRequest="1" Color="{Binding Separator}" />
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="{Binding AttendanceListEmptyMessage}" FontFamily="MontserratLight" TextColor="#2a2a3e" HorizontalTextAlignment="Center" IsVisible="{Binding AttendanceListEmptyMessageIsVisible}" />
+            <Frame WidthRequest="300" CornerRadius="20" HeightRequest="50" BorderColor="Transparent" Margin="0, 10">
+                <Button Command="{Binding GoBackCommand}" BackgroundColor="#0067FF" Text="Ok" TextColor="White" HeightRequest="50" WidthRequest="300" FontFamily="MontserratMedium"/>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

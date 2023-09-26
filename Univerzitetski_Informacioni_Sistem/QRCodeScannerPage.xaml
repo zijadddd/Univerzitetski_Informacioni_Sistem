@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Univerzitetski_Informacioni_Sistem.QRCodeScannerPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI"
+             xmlns:helpers="clr-namespace:Univerzitetski_Informacioni_Sistem.Helpers"
+             Title="QRCodeScannerPage">
+    <Grid Margin="10, 10">
+        <Frame WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="Transparent" BorderColor="Transparent">
+            <Button FontFamily="MaterialIcons" 
+            Text="{x:Static helpers:IconFont.Arrow_back}" 
+            TextColor="#2a2a3e"
+            HeightRequest="50" 
+            WidthRequest="50" 
+            FontSize="25"
+            HorizontalOptions="Center" 
+            VerticalOptions="Center"
+            BackgroundColor="Transparent"
+            Clicked="GoBackCommand"/>
+        </Frame>
+        <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="QR kod skener" FontFamily="MontserratMedium" FontSize="Medium" HorizontalTextAlignment="Center" TextColor="#2a2a3e"/>
+            <zxing:CameraBarcodeReaderView x:Name="Camera" 
+                                           WidthRequest="250" 
+                                           HeightRequest="250" 
+                                           IsDetecting="True" 
+                                           IsTorchOn="False"  
+                                           Margin="80"
+                                           BarcodesDetected="QRCodeDetectedProcessing"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
